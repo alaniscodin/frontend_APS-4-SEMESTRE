@@ -1,0 +1,72 @@
+:root{--fundo:#E6F2FA;--card:#fff;--texto:#3B4A5A;--suave:#7C8DA0;--ceu:#CFE8F7;--ceu2:#9FCDEB;
+--menta:#CDEBDD;--menta2:#5FA98A;--pessego:#FBDDC8;--pessego2:#E59A6E;--lavanda:#DCD6F2;--lavanda2:#8E82CC;--borda:#E3ECF3}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Nunito',system-ui,sans-serif;color:var(--texto);min-height:100vh;
+background:linear-gradient(180deg,#D8ECF9 0%,#EAF5F0 60%,#F7EFE6 100%);padding:28px 16px}
+.painel{max-width:980px;margin:0 auto;background:var(--card);border-radius:28px;padding:22px;
+box-shadow:0 12px 40px rgba(110,150,185,.22)}
+.topo{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.topo h1{font-size:1.15rem;margin:0;font-weight:800}
+.topo nav{display:flex;gap:8px}
+.topo a{padding:8px 16px;border-radius:999px;background:var(--fundo);color:var(--texto);text-decoration:none;font-weight:700;font-size:.9rem}
+.topo a.ativo{background:var(--ceu2);color:#fff}
+.topo a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--lavanda2);outline-offset:2px}
+.hero{position:relative;border-radius:22px;overflow:hidden;height:250px;background:linear-gradient(#BFE0F5,#F6E9D8)}
+.hero svg{position:absolute;inset:0;width:100%;height:100%}
+.hero .temp{position:absolute;left:24px;top:56px;font-size:4rem;font-weight:800;color:#fff;text-shadow:0 2px 12px rgba(80,120,160,.4);line-height:1}
+.hero .temp small{font-size:1.6rem;vertical-align:top}
+.hero .local{position:absolute;left:26px;bottom:20px;color:#fff;font-weight:700;text-shadow:0 1px 8px rgba(80,120,160,.5)}
+.hero .hora{position:absolute;right:24px;bottom:20px;text-align:right;color:#fff;font-weight:700;text-shadow:0 1px 8px rgba(80,120,160,.5)}
+.hero .hora strong{display:block;font-size:1.5rem}
+.grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:16px;margin-top:16px}
+.cartoes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cartao{border-radius:18px;padding:14px 16px;background:var(--fundo)}
+.cartao .rot{font-size:.8rem;color:var(--suave);font-weight:700}
+.cartao .val{font-size:1.5rem;font-weight:800;margin-top:2px}
+.cartao.umid{background:var(--ceu)}.cartao.vento{background:var(--lavanda)}
+.cartao.chuva{background:var(--menta)}.cartao.extra{background:var(--pessego)}
+.resumo{grid-column:1/-1;background:linear-gradient(90deg,var(--menta2),#86C5A8);color:#fff;border-radius:18px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.resumo strong{font-size:1.4rem}
+.grafico{border:1px solid var(--borda);border-radius:18px;padding:14px 16px 8px}
+.grafico h2{font-size:.95rem;margin:0 0 8px;color:var(--menta2)}
+.grafico canvas{width:100%!important;height:250px!important}
+.estado{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--suave);margin-top:14px}
+.ponto{width:10px;height:10px;border-radius:50%;background:var(--menta2)}
+.config{max-width:560px;margin:8px auto 0}
+.config h2{margin:0 0 4px}.config p{color:var(--suave);margin:0 0 18px}
+.campo{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.campo label{font-weight:700;font-size:.9rem}
+.campo input,.campo select{padding:11px 14px;border-radius:12px;border:1.5px solid var(--borda);background:var(--fundo);font:inherit;color:var(--texto)}
+.campo small{color:var(--suave)}
+.duplo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.vars{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
+.vars label{display:flex;gap:8px;align-items:center;background:var(--fundo);padding:10px 14px;border-radius:12px;font-weight:600}
+.botoes{display:flex;gap:10px;margin-top:6px}
+.botoes button,.botoes input[type=submit]{border:0;border-radius:999px;padding:11px 24px;font:inherit;font-weight:800;cursor:pointer;background:var(--ceu2);color:#fff}
+.botoes .sec{background:var(--lavanda);color:var(--texto)}
+.aviso{margin-top:14px;padding:10px 14px;border-radius:12px;background:var(--menta);font-weight:700;display:none}
+@media(max-width:720px){.grade{grid-template-columns:1fr}.hero .temp{font-size:3.2rem}.duplo,.vars{grid-template-columns:1fr}}
+
+/* ===== Layout fiel à referência ===== */
+body{background:linear-gradient(180deg,#CFE6F5 0%,#DCEFE6 55%,#EBF3E4 100%);position:relative;overflow-x:hidden}
+body::before,body::after{content:"";position:fixed;bottom:0;width:240px;height:70vh;z-index:0;opacity:.55;
+background:linear-gradient(#B9D8C6,#9CC8B0);clip-path:polygon(50% 0,70% 30%,60% 30%,80% 60%,68% 60%,90% 100%,10% 100%,32% 60%,20% 60%,40% 30%,30% 30%)}
+body::before{left:-40px}body::after{right:-40px;background:linear-gradient(#C3D9EE,#A9C6E4)}
+.painel{position:relative;z-index:1;padding:20px 24px 26px}
+.busca{display:flex;align-items:center;gap:8px;margin-left:auto}
+.busca input{width:200px;max-width:42vw;padding:8px 14px;border-radius:12px;border:1.5px solid var(--borda);background:#fff;font:inherit;font-size:.85rem;color:var(--texto)}
+.menu{display:grid;gap:4px;padding:8px;border:0;background:none;cursor:pointer}
+.menu i{display:block;width:22px;height:3px;border-radius:3px;background:var(--menta2)}
+.topo{margin-bottom:16px}
+.cartoes{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
+.cartao{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--borda);box-shadow:0 4px 14px rgba(120,160,190,.18);padding:12px 14px}
+.cartao .ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center}
+.cartao .ic svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.umid .ic{background:var(--ceu2)}.vento .ic{background:var(--lavanda2)}.chuva .ic{background:var(--menta2)}.extra .ic{background:var(--pessego2)}
+.cartao.umid,.cartao.vento,.cartao.chuva,.cartao.extra{background:#fff}
+.cartao .val{font-size:1.15rem}
+.resumo{grid-column:1/-1;align-self:end;flex-direction:row;background:linear-gradient(90deg,#6DB596,#8ACBAE);box-shadow:0 6px 16px rgba(95,169,138,.35)}
+.resumo small{display:block;font-weight:600;opacity:.9}
+.grafico{box-shadow:0 6px 20px rgba(120,160,190,.18);border:0}
+.grafico h2{color:var(--menta2);font-size:.85rem}
+.hero .local{font-size:1.05rem}

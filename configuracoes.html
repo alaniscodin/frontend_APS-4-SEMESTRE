@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Configurações · Estação Climática</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="resources/css/estacao.css"/>
+  <script src="resources/js/estacao.js"></script>
+</head>
+<body>
+  <main class="painel">
+    <header class="topo">
+      <h1>Estação Climática</h1>
+      <nav>
+        <a href="index.html">Painel</a>
+        <a class="ativo" href="configuracoes.html">Configurações</a>
+      </nav>
+    </header>
+
+    <form class="config" onsubmit="return salvarConfig()">
+      <h2>Configurações</h2>
+      <p>Defina de onde vêm os dados e com que frequência são coletados.</p>
+
+      <div class="campo">
+        <label for="cidade">Cidade</label>
+        <input id="cidade" type="text" value="Sorocaba"/>
+        <small>Usada na consulta à API de previsão do tempo.</small>
+      </div>
+      <div class="duplo">
+        <div class="campo">
+          <label for="intervalo">Intervalo de coleta (segundos)</label>
+          <input id="intervalo" type="number" min="10" value="10"/>
+        </div>
+        <div class="campo">
+          <label for="unidade">Unidade de temperatura</label>
+          <select id="unidade"><option value="C">Celsius (°C)</option><option value="F">Fahrenheit (°F)</option></select>
+        </div>
+      </div>
+
+      <div class="campo"><label>Variáveis exibidas</label></div>
+      <div class="vars">
+        <label><input type="checkbox" checked="checked"/> Temperatura</label>
+        <label><input type="checkbox" checked="checked"/> Umidade</label>
+        <label><input type="checkbox" checked="checked"/> Precipitação</label>
+        <label><input type="checkbox" checked="checked"/> Vento</label>
+      </div>
+
+      <div class="botoes">
+        <button type="submit">Salvar configurações</button>
+        <button type="reset" class="sec">Restaurar padrão</button>
+      </div>
+      <div class="aviso" id="aviso" role="status">Configurações salvas.</div>
+    </form>
+  </main>
+</body>
+</html>

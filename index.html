@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Estação Climática</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="resources/css/estacao.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="resources/js/estacao.js"></script>
+</head>
+<body>
+  <main class="painel">
+    <header class="topo">
+      <h1 id="tituloCidade">Sorocaba</h1>
+      <div class="busca">
+        <input id="busca" type="search" placeholder="Buscar cidade" aria-label="Buscar cidade" onkeydown="if(event.key==='Enter')buscarCidade()"/>
+        <a href="configuracoes.html" class="menu" aria-label="Configurações"><i></i><i></i><i></i></a>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="Condição atual">
+      <svg viewBox="0 0 900 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs><radialGradient id="sol"><stop offset="0" stop-color="#FFF6D6"/><stop offset="1" stop-color="#FFF6D600"/></radialGradient></defs>
+        <g stroke="#FFF3C4" stroke-opacity=".5" stroke-width="3"><path d="M300 90L120 0M300 90L300 0M300 90L480 0M300 90L0 90M300 90L600 90"/></g>
+        <circle cx="300" cy="90" r="130" fill="url(#sol)"/><circle cx="300" cy="90" r="26" fill="#FFF3C4"/>
+        <path d="M0 150 L120 90 L230 140 L360 80 L520 150 L640 100 L780 150 L900 110 V250 H0Z" fill="#B9CFE8"/>
+        <path d="M0 175 Q150 135 320 170 T640 165 T900 160 V250 H0Z" fill="#BFE3CF"/>
+        <path d="M0 210 Q200 180 420 205 T900 195 V250 H0Z" fill="#A6D6BC"/>
+        <g fill="#8CC4A6"><path d="M70 205 l18-55 18 55z"/><path d="M110 210 l14-45 14 45z"/><path d="M780 200 l20-60 20 60z"/><path d="M830 208 l15-48 15 48z"/></g>
+        <path d="M430 250 Q470 215 560 205 T760 190" stroke="#F3E9D6" stroke-width="10" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="temp"><span id="temp">--</span><small>°C</small></div>
+      <div class="local" id="local">Sorocaba, Brasil</div>
+      <div class="hora"><strong id="hora">--:--:--</strong><span id="data">--</span></div>
+    </section>
+
+    <section class="grade">
+      <div class="cartoes">
+        <div class="cartao umid"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3C8 8 6 11 6 14a6 6 0 0 0 12 0c0-3-2-6-6-11z"/></svg></span>
+          <div><div class="rot">Umidade</div><div class="val" id="umidade">--</div></div></div>
+        <div class="cartao extra"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 12l4-3"/></svg></span>
+          <div><div class="rot">Pressão</div><div class="val" id="pressao">--</div></div></div>
+        <div class="cartao vento"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 9h11a3 3 0 1 0-3-3M3 15h15a3 3 0 1 1-3 3"/></svg></span>
+          <div><div class="rot">Vento</div><div class="val" id="vento">--</div></div></div>
+        <div class="cartao chuva"><span class="ic"><svg viewBox="0 0 24 24"><path d="M7 15a4 4 0 1 1 1-7.9A5 5 0 0 1 18 9a3 3 0 0 1 0 6zM9 19l-1 2M13 19l-1 2M17 19l-1 2"/></svg></span>
+          <div><div class="rot">Precipitação</div><div class="val" id="chuva">--</div></div></div>
+        <div class="resumo"><span>Chuva registrada hoje<small id="ultima">Aguardando leitura…</small></span><strong id="chuvaMm">0 leituras</strong></div>
+      </div>
+      <div class="grafico">
+        <h2>Temperatura, umidade e vento ao longo do tempo (leitura a cada 10 s)</h2>
+        <canvas id="grafico"></canvas>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
