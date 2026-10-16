@@ -100,11 +100,11 @@ function montarSimulador() {
 /* ---------- Gráfico ---------- */
 function criarGrafico() {
   var cv = document.getElementById('grafico'); if (!cv || typeof Chart === 'undefined') return;
-  function serie(n, c, eixo, fill) { return { label: n, data: [], borderColor: c, backgroundColor: c + '33', fill: fill, tension: .4, pointRadius: 2, borderWidth: 2.5, yAxisID: eixo }; }
+  function serie(n, c, eixo, fill) { return { label: n, data: [], borderColor: c, backgroundColor: c + '33', fill: fill, tension: .4, pointRadius: 2, borderWidth: 6, yAxisID: eixo }; }
   grafico = new Chart(cv, { type: 'line',
     data: { labels: [], datasets: [serie('Temperatura (°C)', '#CD5C5C', 'y', true), serie('Umidade (%)', '#7FBFA5', 'y1', false), serie('Vento (km/h)', '#F3B266', 'y', false)] },
     options: { responsive: true, maintainAspectRatio: false, animation: false, interaction: { mode: 'index', intersect: false },
-      plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, font: { family: 'Nunito' } } } },
+      plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, font: { family: 'Dongle' } } } },
       scales: { y: { grid: { color: '#F3ECEF' } }, y1: { position: 'right', min: 0, max: 100, grid: { display: false } },
                 x: { grid: { display: false }, ticks: { maxTicksLimit: 6 } } } } });
 }

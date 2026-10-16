@@ -1,7 +1,7 @@
-:root{--seashell:#E9E7F2;--pearl:#FCF1F1;--coral:#CD5C5C;--treasure:#F3B266;--seafoam:#B8DCCD;--starfish:#E99055;
+:root{--seashell:#e3e0ee;--pearl:#FCF1F1;--coral:#CD5C5C;--treasure:#F3B266;--seafoam:#B8DCCD;--starfish:#E99055;
 --sea2:#7FBFA5;--texto:#4A3F4F;--suave:#8A7F90;--borda:#EFE6EA;--lav2:#A9A3C4}
 *{box-sizing:border-box}
-body{margin:0;font-family:'Nunito',system-ui,sans-serif;color:var(--texto);min-height:100vh;padding:28px 16px;
+body{margin:0;font-family:'Dongle',system-ui,sans-serif;color:var(--texto);min-height:100vh;padding:28px 16px;
 background:linear-gradient(160deg,#FCF1F1 0%,#E9E7F2 55%,#DDEFE7 100%)}
 .painel{max-width:980px;margin:0 auto;background:#fff;border-radius:28px;padding:20px 24px 26px;box-shadow:0 14px 40px rgba(150,120,150,.2)}
 .topo{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
